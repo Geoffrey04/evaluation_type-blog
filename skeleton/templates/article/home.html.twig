@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    <h1>List of Articles</h1>
+
+    <h3>title</h3>
+        <p>Contains</p>
+
+
+    {#
+
+    <h1>{% block title %}Mon 1er article{% endblock %}</h1>
+
+
+    <div>
+        <h3>Titre Article</h3>
+            <p>Contenu</p>
+    </div>
+
+    <div>
+        <h3>Titre Article</h3>
+        <p>Contenu</p>
+    </div>
+
+    <div>
+        <h3>Titre Article</h3>
+        <p>Contenu</p>
+    </div>
+
+    <div>
+        <h3>Titre Article</h3>
+        <p>Contenu</p>
+    </div>
+
+    <a href="{{ path('article_show', {titre : 'MonSuperArticle'}) }}">unknown</a>
+
+    #}
+
+{% endblock %}

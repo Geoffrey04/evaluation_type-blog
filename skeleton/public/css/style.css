@@ -1,0 +1,46 @@
+body {
+    color: #AA3333;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 10px;
+}
+ header {
+    text-align: center;
+    background-color: #AA3333;
+    color: whitesmoke;
+    padding: 20px;
+    width: auto;
+    height: auto;
+
+}
+
+footer {
+    text-align: center;
+    background-color: #AA3333;
+    color: whitesmoke;
+    padding: 15px;
+    width: auto;
+    height: auto;
+    margin-top: 19%;
+}
+
+p {
+    text-align: center;
+}
+
+table {
+    margin-left: 32%;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+}
+
+#cr_mail, #log_password {
+    margin-left: 4%;
+}
+
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Random_blog{% endblock %}</title>
+        {% block stylesheets %}<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">{% endblock %}
+    </head>
+    <body>
+            <header>
+                <h1>Blog : Articles</h1>
+                <nav>
+                    <a href="/inscription">S'inscrire</a><a href="/login">Connexion</a><a href="/article">Articles</a>
+                </nav>
+            </header>
+
+
+
+
+
+        {% block body %}
+        {% endblock %}
+
+
+
+
+
+            <footer>
+                <p>Some contains in footer of this page</p>
+            </footer>
+
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
