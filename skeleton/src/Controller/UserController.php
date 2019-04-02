@@ -47,7 +47,7 @@ class UserController extends AbstractController
     /**
      * @Route("/login", name="login")
      */
-    public function connexion(Request $request, AuthenticationUtils $authenticationUtils)
+    public function connexion(Request $request, AuthenticationUtils $authenticationUtils) : Response
     {
         $error = $authenticationUtils->getLastAuthenticationError();
 
