@@ -88,4 +88,5 @@ class Article
 
         return $this;
     }
+
 }

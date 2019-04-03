@@ -6,28 +6,25 @@ namespace App\Controller;
 
 
 
+use App\Entity\Article;
 use App\Entity\Comments;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
+/**
+ * Class CommentsController
+ * @package App\Controller
+ * @Route("/comments", name="space_com")
+ */
 class CommentsController extends AbstractController
 {
-    /**
-     * @param $articleid
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/article/{articleid}" , name="show_comments")
-     */
-public function show($articleid) {
 
-    $repocomments = $this->getDoctrine()->getRepository(Comments::class);
-    $comments = $repocomments->findBy(['Article' => $articleid]);
-    return $this->render('article/home.html.twig', [
-        'articleid' => $articleid,
-        'comments' => $comments ,
-
-    ]);
 
 }
-}
+
+
+
 
 

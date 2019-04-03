@@ -28,7 +28,7 @@ class Comments
     private $id_com;
 
     /**
-     * @ORM\Column(type="bigint")
+     *@@ORM\Column(type="bigint")
      */
     private $id_user;
 
@@ -73,6 +73,11 @@ class Comments
         return $this;
     }
 
+
+
+
+
+/*
     public function getComments(): Collection
 
     {
@@ -114,6 +119,7 @@ class Comments
         return $this;
 
 
-    }
+    } */
+
 
 }
