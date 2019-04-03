@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\Collection;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CommentsRepository")
@@ -71,4 +72,48 @@ class Comments
 
         return $this;
     }
+
+    public function getComments(): Collection
+
+    {
+        return $this->contenu;
+    }
+
+
+    public function addComment(Comments $comments): self
+    {
+        if (!$this->contenu->contains($comments)) {
+
+            $this->contenu[] = $comments;
+
+            $comments->setIdUser($this);
+
+            return $this;
+        }
+    }
+
+
+    public function removeComment(Comments $comments): self
+
+    {
+
+        if ($this->contenu->contains($comments)) {
+
+            $this->contenu->removeElement($comments);
+
+
+            if ($comments->getIdUser() === $this) {
+
+                $comments->setIdUser(null);
+
+            }
+
+        }
+
+
+        return $this;
+
+
+    }
+
 }

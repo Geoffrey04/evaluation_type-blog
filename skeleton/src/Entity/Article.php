@@ -31,6 +31,11 @@ class Article
      */
     private $id_com;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $image;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +73,18 @@ class Article
     public function setIdCom(int $id_com): self
     {
         $this->id_com = $id_com;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }

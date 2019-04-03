@@ -14,6 +14,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationFailureHandlerI
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 
+
 class UserController extends AbstractController
 {
     /**
@@ -37,9 +38,11 @@ class UserController extends AbstractController
             $emptymanager->persist($user);
             $emptymanager->flush();
 
-          //  return $this->render("article/connexion.html.twig" , ["Form" => $form->createView()]);
+            return $this->redirectToRoute("article_show" , ["Form" => $form->createView()]);
         }
         return $this->render("article/connexion.html.twig" , ["form" => $form->createView()]);
+
+
 
     }
 
@@ -53,10 +56,31 @@ class UserController extends AbstractController
 
         $lastUsername = $authenticationUtils->getLastUsername();
 
+       // dump($authenticationUtils);
+       //  dump($error);
+
         return $this->render('article/login.html.twig', [
             'last_username' => $lastUsername,
             'error' => $error
+
+
         ]);
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @Route("/", name="home_page")
+     */
+    public function check()
+    {
+        if(true == $this->get('security.authorization_checker')->isGranted('ROLE_USER'))
+        {
+            return $this->redirectToRoute('article_show');
+        }
+        elseif (true == $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN'))
+        {
+            return $this->redirectToRoute('article_show');
+        }
     }
 
 }

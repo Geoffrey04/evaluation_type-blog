@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\User;
 use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -49,12 +50,14 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="article_show", methods={"GET"})
+     * @Route("/article_show", name="article_show", methods={"GET"})
      */
-    public function show(Article $article): Response
+    public function show(): Response
     {
-        return $this->render('article/show.html.twig', [
-            'article' => $article,
+        $repoArticle = $this->getDoctrine()->getRepository(Article::class);
+        $articles = $repoArticle->findAll();
+        return $this->render('article/home.html.twig', [
+            'articles' => $articles,
         ]);
     }
 
@@ -93,4 +96,6 @@ class ArticleController extends AbstractController
 
         return $this->redirectToRoute('article_index');
     }
+
+
 }

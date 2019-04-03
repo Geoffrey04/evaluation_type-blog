@@ -9,7 +9,10 @@
             <header>
                 <h1>Blog : Articles</h1>
                 <nav>
-                    <a href="/inscription">S'inscrire</a><a href="/login">Connexion</a><a href="/article">Articles</a>
+                    <a href="/inscription">S'inscrire</a><a href="/login">Connexion</a><a href="/article/article_show">Articles</a><a href="{{ logout_path('main') }}">logout</a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a href="/article">CRUD_Articles</a>
+                    {% endif %}
                 </nav>
             </header>
 
