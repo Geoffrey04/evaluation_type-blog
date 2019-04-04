@@ -23,9 +23,9 @@ class Comments
     private $contenu;
 
     /**
-     * @ORM\Column(type="bigint")
+     * @ORM\Column(type="integer")
      */
-    private $id_com;
+    private $id_art;
 
     /**
      *@@ORM\Column(type="bigint")
@@ -49,14 +49,14 @@ class Comments
         return $this;
     }
 
-    public function getIdCom(): ?int
+    public function getIdArt(): ?int
     {
-        return $this->id_com;
+        return $this->id_art;
     }
 
-    public function setIdCom(int $id_com): self
+    public function setIdArt(int $id_art): self
     {
-        $this->id_com = $id_com;
+        $this->id_art = $id_art;
 
         return $this;
     }
@@ -74,10 +74,6 @@ class Comments
     }
 
 
-
-
-
-/*
     public function getComments(): Collection
 
     {
@@ -119,7 +115,7 @@ class Comments
         return $this;
 
 
-    } */
+    }
 
 
 }

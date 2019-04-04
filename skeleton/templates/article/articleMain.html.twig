@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+
+
+        <div id="all_articles">
+
+
+           <img src="{{ articles.image }}">
+
+            <h2>{{ articles.titre }}</h2>
+
+              <p>{{ articles.contenu }}</p>
+
+
+        </div>
+
+    <div id="tab_comments">
+        <div id="show_comments">
+
+
+            <h4>commentary</h4>
+
+
+
+            {% for comments in commentary %}
+                <p>{{ comments.contenu }}</p>
+            {% endfor %}
+
+
+        </div>
+
+        {#<div id="write_comments">
+            <label for="commentaire">Commentaire:</label>
+            <input type="text" id="inputCom">
+            <button type="submit">Envoyer</button>
+        </div>
+    </div>#}
+
+    <div>
+    {{ form(form) }}
+    </div>
+
+
+
+
+{% endblock %}

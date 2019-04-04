@@ -2,8 +2,12 @@
 
 {% block title %}{% endblock %}
 
+
+
+
 {% block body %}
 
+    <p>Bienvenue {{ id_user }}</p>
 
 {% for article in articles %}
 
@@ -14,26 +18,15 @@
 
         <h2>{{ article.titre }}</h2>
 
-        <p>{{ article.contenu }}</p>
+        <a href="{{ path('show_articleMain', { 'id' : article.id}) }}">Voir l'article complet</a>
+
+      {#  <p>{{ article.contenu }}</p>   #}
 
 
     </div>
-    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-<div id="tab_comments">
-    <div id="show_comments">
-        <p>Nom utilisateur</p>
-        <p></p>
-        <p></p>
 
-    </div>
 
-    <div id="write_comments">
-        <label for="commentaire">Commentaire:</label>
-        <input type="text" id="inputCom">
-        <button type="submit">Envoyer</button>
-    </div>
-</div>
-    {% endif %}
+
     {% endfor %}
 
 

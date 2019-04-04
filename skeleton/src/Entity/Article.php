@@ -27,11 +27,6 @@ class Article
     private $contenu;
 
     /**
-     * @ORM\Column(type="bigint")
-     */
-    private $id_com;
-
-    /**
      * @ORM\Column(type="text", nullable=true)
      */
     private $image;
@@ -65,17 +60,7 @@ class Article
         return $this;
     }
 
-    public function getIdCom(): ?int
-    {
-        return $this->id_com;
-    }
 
-    public function setIdCom(int $id_com): self
-    {
-        $this->id_com = $id_com;
-
-        return $this;
-    }
 
     public function getImage(): ?string
     {

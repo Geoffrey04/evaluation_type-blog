@@ -42,7 +42,6 @@ nav {
 #all_articles {
     border: 2px solid black;
     margin-top: 5%;
-    overflow: scroll;
 }
 
 h2 {
@@ -52,7 +51,8 @@ h2 {
 #tab_comments {
     border : 1px black solid;
 }
+
 img {
-    width: 26%;
-    height: 40%;
+    width: 29%;
+    height: 37%;
 }
