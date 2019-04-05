@@ -23,14 +23,18 @@ class Comments
     private $contenu;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="comments")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $id_art;
+    private $user;
 
     /**
-     *@@ORM\Column(type="bigint")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Article", inversedBy="comments")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $id_user;
+    private $art;
+
+
 
     public function getId(): ?int
     {
@@ -49,29 +53,7 @@ class Comments
         return $this;
     }
 
-    public function getIdArt(): ?int
-    {
-        return $this->id_art;
-    }
 
-    public function setIdArt(int $id_art): self
-    {
-        $this->id_art = $id_art;
-
-        return $this;
-    }
-
-    public function getIdUser(): ?int
-    {
-        return $this->id_user;
-    }
-
-    public function setIdUser(int $id_user): self
-    {
-        $this->id_user = $id_user;
-
-        return $this;
-    }
 
 
     public function getComments(): Collection
@@ -115,6 +97,30 @@ class Comments
         return $this;
 
 
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getArt(): ?Article
+    {
+        return $this->art;
+    }
+
+    public function setArt(?Article $art): self
+    {
+        $this->art = $art;
+
+        return $this;
     }
 
 

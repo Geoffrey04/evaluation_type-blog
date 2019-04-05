@@ -26,8 +26,13 @@
 
 
 
+
+
+
             {% for comments in commentary %}
+                <p>{{ comments.user }}</p>
                 <p>{{ comments.contenu }}</p>
+
             {% endfor %}
 
 

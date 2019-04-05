@@ -71,6 +71,7 @@ class UserController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route("/", name="home_page")
      */
+
     public function check()
     {
         if(true == $this->get('security.authorization_checker')->isGranted('ROLE_USER'))

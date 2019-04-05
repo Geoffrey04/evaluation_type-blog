@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -30,6 +32,17 @@ class Article
      * @ORM\Column(type="text", nullable=true)
      */
     private $image;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Comments", mappedBy="art", orphanRemoval=true)
+     */
+    private $comments;
+
+
+    public function __construct()
+    {
+        $this->comments = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -61,7 +74,6 @@ class Article
     }
 
 
-
     public function getImage(): ?string
     {
         return $this->image;
@@ -73,5 +85,37 @@ class Article
 
         return $this;
     }
+
+    /**
+     * @return Collection|Comments[]
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comments $comment): self
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments[] = $comment;
+            $comment->setArt($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comments $comment): self
+    {
+        if ($this->comments->contains($comment)) {
+            $this->comments->removeElement($comment);
+            // set the owning side to null (unless already changed)
+            if ($comment->getArt() === $this) {
+                $comment->setArt(null);
+            }
+        }
+
+        return $this;
+    }
+
 
 }

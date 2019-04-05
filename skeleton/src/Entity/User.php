@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -37,6 +39,16 @@ class User implements UserInterface
      */
     private $role;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Comments", mappedBy="user", orphanRemoval=true)
+     */
+    private $comments;
+
+
+    public function __construct()
+    {
+        $this->comments = new ArrayCollection();
+    }
 
 
     public function getId(): ?int
@@ -110,18 +122,11 @@ class User implements UserInterface
     public function getRoles()
     {
         // TODO: Implement getRoles() method.
-        if($this->role == 'user')
-        {
+        if ($this->role == 'user') {
             return ['ROLE_USER'];
-        }
-
-        elseif($this->role == 'admin')
-        {
+        } elseif ($this->role == 'admin') {
             return ['ROLE_ADMIN'];
-        }
-
-        else
-        {
+        } else {
             return [];
         }
     }
@@ -153,4 +158,36 @@ class User implements UserInterface
     {
         return $this->getUsername();
     }
+
+    /**
+     * @return Collection|Comments[]
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comments $comment): self
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments[] = $comment;
+            $comment->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comments $comment): self
+    {
+        if ($this->comments->contains($comment)) {
+            $this->comments->removeElement($comment);
+            // set the owning side to null (unless already changed)
+            if ($comment->getUser() === $this) {
+                $comment->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
 }
