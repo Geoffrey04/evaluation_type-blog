@@ -77,11 +77,11 @@ class ArticleMainController extends AbstractController
 
 
 
-            return $this->render('article/articleMain.html.twig', ['articles' => $articles,
+            return $this->redirectToRoute('show_articleMain', ['articles' => $articles,
                 'commentary' => $comments,
                 'id_user' => $this->getUser(),
                 'nickname' => $users ,
-                "form" => $form->createView()]);
+                'id' =>   $id                     ]);
 
         }
 

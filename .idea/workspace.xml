@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1baa6458-8a03-453f-941a-ed4d0909cc6d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/skeleton/src/Migrations/Version20190405090646.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/skeleton/src/Controller/ArticleMainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/skeleton/src/Controller/ArticleMainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/skeleton/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/skeleton/src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/skeleton/src/Entity/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/skeleton/src/Entity/Article.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/skeleton/src/Entity/Comments.php" beforeDir="false" afterPath="$PROJECT_DIR$/skeleton/src/Entity/Comments.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/skeleton/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/skeleton/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/skeleton/src/Form/CommentaryType.php" beforeDir="false" afterPath="$PROJECT_DIR$/skeleton/src/Form/CommentaryType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/skeleton/src/Migrations/Version20190402080902.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/skeleton/src/Migrations/Version20190402081500.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/skeleton/src/Migrations/Version20190402081918.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/skeleton/src/Migrations/Version20190402082101.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/skeleton/src/Migrations/Version20190402112154.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/skeleton/src/Migrations/Version20190402120635.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/skeleton/src/Migrations/Version20190403095712.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/skeleton/src/Migrations/Version20190404091750.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/skeleton/src/Migrations/Version20190404092418.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/skeleton/src/Migrations/Version20190404092802.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/skeleton/templates/article/articleMain.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/skeleton/templates/article/articleMain.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,8 +64,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/skeleton/src/Controller/ArticleMainController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="366">
-                  <caret line="83" column="15" selection-start-line="83" selection-start-column="15" selection-end-line="83" selection-end-column="45" />
+                <state relative-caret-position="282">
+                  <caret line="79" column="42" lean-forward="true" selection-start-line="79" selection-start-column="42" selection-end-line="79" selection-end-column="42" />
                   <folding>
                     <element signature="e#38#61#0#PHP" expanded="true" />
                   </folding>
@@ -480,7 +462,7 @@
       <workItem from="1554189567838" duration="25671000" />
       <workItem from="1554276086284" duration="24944000" />
       <workItem from="1554362108206" duration="22537000" />
-      <workItem from="1554449256053" duration="9408000" />
+      <workItem from="1554449256053" duration="9850000" />
     </task>
     <task id="LOCAL-00001" summary="commit_init ( manque twig )">
       <created>1554130534375</created>
@@ -517,14 +499,22 @@
       <option name="project" value="LOCAL" />
       <updated>1554302514766</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Commit : Fonctionnel ?">
+      <created>1554473873360</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1554473873360</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87265000" />
+    <option name="totallyTimeSpent" value="87707000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19537275" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -581,7 +571,8 @@
     <MESSAGE value="commit middle 2" />
     <MESSAGE value="commit ( connexion : X || espace admin : X || commentaires : ??? )" />
     <MESSAGE value="Commit : Toujours pas de space com" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit : Toujours pas de space com" />
+    <MESSAGE value="Commit : Fonctionnel ?" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit : Fonctionnel ?" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.php" />
@@ -870,8 +861,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/skeleton/src/Controller/ArticleMainController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="83" column="15" selection-start-line="83" selection-start-column="15" selection-end-line="83" selection-end-column="45" />
+        <state relative-caret-position="282">
+          <caret line="79" column="42" lean-forward="true" selection-start-line="79" selection-start-column="42" selection-end-line="79" selection-end-column="42" />
           <folding>
             <element signature="e#38#61#0#PHP" expanded="true" />
           </folding>
