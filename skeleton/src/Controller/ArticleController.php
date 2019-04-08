@@ -3,8 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Article;
-use App\Entity\Comments;
-use App\Entity\User;
 use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,11 +10,15 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
+// Crud for Article Entity
 /**
  * @Route("/article")
  */
 class ArticleController extends AbstractController
 {
+
+            // List of Articles for CRUD
     /**
      * @Route("/", name="article_index", methods={"GET"})
      */
@@ -27,6 +29,8 @@ class ArticleController extends AbstractController
         ]);
     }
 
+
+    // Create an Article with CRUD_Articles (Admin Only)
     /**
      * @Route("/new", name="article_new", methods={"GET","POST"})
      */
@@ -50,6 +54,8 @@ class ArticleController extends AbstractController
         ]);
     }
 
+
+    // Display all Articles or one Article by id ( show )
     /**
      * @Route("/article_show", name="article_show", methods={"GET"})
      *
@@ -66,11 +72,16 @@ class ArticleController extends AbstractController
         ]);
     }
 
+
+    // Edit an Article from CRUD_Article ( Admin Only )
     /**
-     * @Route("/{id}/edit", name="article_edit", methods={"GET","POST"})
+     * @Route("/edit/{id}", name="article_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Article $article): Response
+    public function edit(Request $request, $id): Response
     {
+        $repoArticle = $this->getDoctrine()->getRepository(Article::class);
+        $article = $repoArticle->find($id);
+
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 
@@ -86,13 +97,19 @@ class ArticleController extends AbstractController
             'article' => $article,
             'form' => $form->createView(),
         ]);
+
     }
 
+
+        // Delete Article From CRUD_Articles ( Delete or in Edit )
     /**
-     * @Route("/{id}", name="article_delete", methods={"DELETE"})
+     * @Route("/delete/{id}", name="article_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Article $article): Response
+    public function delete(Request $request,$id): Response
     {
+        $repoArticle = $this->getDoctrine()->getRepository(Article::class);
+        $article = $repoArticle->find($id);
+
         if ($this->isCsrfTokenValid('delete'.$article->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($article);

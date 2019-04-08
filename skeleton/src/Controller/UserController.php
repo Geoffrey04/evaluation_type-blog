@@ -17,8 +17,10 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class UserController extends AbstractController
 {
+
+    // Controller for subscribe or create account
+
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/inscription" , name="inscription")
      *
      */
@@ -38,14 +40,16 @@ class UserController extends AbstractController
             $emptymanager->persist($user);
             $emptymanager->flush();
 
-            return $this->redirectToRoute("article_show" , ["Form" => $form->createView()]);
+            return $this->redirectToRoute("login" , ["Form" => $form->createView()]);
         }
-        return $this->render("article/connexion.html.twig" , ["form" => $form->createView()]);
+        return $this->render("article/inscription.html.twig" , ["form" => $form->createView()]);
 
 
 
     }
 
+
+    // Controller for control login
 
     /**
      * @Route("/login", name="login")
@@ -56,8 +60,7 @@ class UserController extends AbstractController
 
         $lastUsername = $authenticationUtils->getLastUsername();
 
-       // dump($authenticationUtils);
-       //  dump($error);
+
 
         return $this->render('article/login.html.twig', [
             'last_username' => $lastUsername,
@@ -67,20 +70,22 @@ class UserController extends AbstractController
         ]);
     }
 
+
+    // Controller for check the role ( Admin or User )
     /**
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     * @Route("/", name="home_page")
+     * @Route("/", name="check")
      */
 
     public function check()
     {
+
         if(true == $this->get('security.authorization_checker')->isGranted('ROLE_USER'))
         {
             return $this->redirectToRoute('article_show');
         }
         elseif (true == $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN'))
         {
-            return $this->redirectToRoute('article_show');
+            return $this->redirectToRoute('article_index');
         }
     }
 

@@ -1,10 +1,9 @@
 body {
     color: #AA3333;
     text-align: center;
-    display: flex;
-    flex-direction: column;
     margin: auto;
     padding: 10px;
+    width: 100%;
 }
  header {
     text-align: center;
@@ -24,15 +23,16 @@ footer {
     width: auto;
     height: auto;
     margin-top: 19%;
+    clear: both;
 }
 
 p {
     text-align: center;
 }
 
-nav {
-    display: flex;
-    flex-direction: column;
+.username_com {
+    background-color: #222222;
+    color : whitesmoke;
 }
 
 #cr_mail, #log_password {
@@ -55,4 +55,65 @@ h2 {
 img {
     width: 29%;
     height: 37%;
+}
+
+#user_controller_mail {
+    margin-left: 2%;
+}
+
+#menu_hamb > a {
+    display: inline-block;
+    width: auto;
+    padding: 10px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+#menu_hamb > span {
+    display: none;
+    text-align: center;
+    line-height: 5px;
+    padding-bottom: 20px;
+}
+
+
+/* Media_Query for Mobile*/
+@media (max-width: 812px)
+{
+
+
+    #menu_hamb > a
+    {
+        display: none;
+    }
+
+    #menu_hamb > span
+    {
+        display: inline-block;
+    }
+
+    #menu_hamb:hover > a
+    {
+        width: 80%;
+        display: block;
+        margin : 10px auto ;
+    }
+
+    #menu_hamb:hover > span
+    {
+        transform: rotate(90deg);
+        transition-property: transform;
+        transition-duration: 0.5s;
+    }
+
+    a , label {
+        font-size: x-large;
+    }
+
+    p {
+        font-size: x-large;
+    }
+    .username_com {
+        font-size: x-large;
+    }
 }

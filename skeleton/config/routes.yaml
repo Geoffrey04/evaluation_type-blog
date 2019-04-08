@@ -4,5 +4,5 @@
 
 
 logout :
-    path: /logout
+   path: /logout
 

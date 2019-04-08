@@ -22,7 +22,7 @@
         <div id="show_comments">
 
 
-            <h4>commentary</h4>
+            <h3>commentary</h3>
 
 
 
@@ -30,24 +30,24 @@
 
 
             {% for comments in commentary %}
-                <p>{{ comments.user }}</p>
+                <p class="username_com">{{ comments.user }}</p>
                 <p>{{ comments.contenu }}</p>
 
+
+                {% if is_granted('ROLE_ADMIN') %}
+                {{ include('comments/_delete_form.html.twig') }}
+                {% endif %}
             {% endfor %}
 
-
+            {% if is_granted('is_authenticated_fully') %}
+            {{ form(form) }}
+            {% endif %}
         </div>
 
-        {#<div id="write_comments">
-            <label for="commentaire">Commentaire:</label>
-            <input type="text" id="inputCom">
-            <button type="submit">Envoyer</button>
-        </div>
-    </div>#}
 
-    <div>
-    {{ form(form) }}
-    </div>
+
+
+
 
 
 

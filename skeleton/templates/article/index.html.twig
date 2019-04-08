@@ -25,7 +25,7 @@
                 <td>{{ article.contenu }}</td>
                 <td>{{ article.image }}</td>
                 <td>
-                    <a href="{{ path('article_show', {'id': article.id}) }}">show</a>
+                    <a href="{{ path('show_articleMain', {'id': article.id}) }}">show</a>
                     <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
                 </td>
             </tr>

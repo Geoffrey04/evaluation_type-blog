@@ -17,9 +17,13 @@ use Symfony\Component\HttpFoundation\Request;
 
 
 
-class ArticleMainController extends AbstractController
+class BlogController extends AbstractController
 {
 
+
+    // Function for display one article by ID
+    // display all of his comments
+    // and display and Send form_Comment
     /**
      * @Route("/articleMain/{id}" , name="show_articleMain")
      */
@@ -52,22 +56,14 @@ class ArticleMainController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid())
         {
-            //dd($articles);
+
             $com = new Comments();
             $contenu = $request->request->get('commentary')['contenu'];
             $com->setContenu($contenu);
-            // Tu faisais référence à l'id seulement ici
-            // quand tu faisais $com->setArt($article)
-            // (tu as défini $article au début de ta méthode)
-            // Ce qu'il te fallait c'est l'entité complète qui correspond
-            // à cet id que tu récupérais aussi plus haut en l'appelant $articles
-            // C'était juste ça :p
 
-            // Par contre t'as une nouvelle erreur dans ton twig après
-            // la sauvegarde du commentaire
+
             $com->setArt($articles);
             $com->setUser($this->getUser());
-            //dd($com);
             $emptymanager = $this->getDoctrine()->getManager();
             $emptymanager->persist($com);
             $emptymanager->flush();
@@ -81,9 +77,11 @@ class ArticleMainController extends AbstractController
                 'commentary' => $comments,
                 'id_user' => $this->getUser(),
                 'nickname' => $users ,
-                'id' =>   $id                     ]);
+                'id' =>   $id  ]);
 
         }
+
+
 
 
         return $this->render('article/articleMain.html.twig', [
@@ -91,7 +89,7 @@ class ArticleMainController extends AbstractController
             'commentary' => $comments,
             'id_user' => $this->getUser(),
             'nickname' => $users ,
-            "form" => $form->createView()
+            "form" => $form->createView(),
 
 
 

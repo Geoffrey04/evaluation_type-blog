@@ -3,16 +3,21 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Random_blog{% endblock %}</title>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
         {% block stylesheets %}<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">{% endblock %}
     </head>
     <body>
             <header>
-                <h1>Blog : Articles</h1>
+                <h1>J.M.J : No joke</h1>
                 <nav>
-                    <a href="/inscription">S'inscrire</a><a href="/login">Connexion</a><a href="/article/article_show">Articles</a><a href="{{ logout_path('main') }}">logout</a>
+                    <div id="menu_hamb">
+                    <span>| | |</span>
+
+                    <a href="{{ path('inscription') }}">S'inscrire</a><a href="{{ path('login') }}">Connexion</a><a href="{{ path('article_show') }}">Articles</a><a href="{{ logout_path('main') }}">logout</a>
                     {% if is_granted('ROLE_ADMIN') %}
-                        <a href="/article">CRUD_Articles</a>
+                        <a href="{{ path('article_index') }}">Espace Admin</a>
                     {% endif %}
+                    </div>
                 </nav>
             </header>
 
