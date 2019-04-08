@@ -76,6 +76,10 @@ img {
     padding-bottom: 20px;
 }
 
+.label_pwd {
+    margin-left: 4.3%;
+}
+
 
 /* Media_Query for Mobile*/
 @media (max-width: 812px)
