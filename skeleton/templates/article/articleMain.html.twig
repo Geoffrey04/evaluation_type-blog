@@ -39,7 +39,7 @@
                 {% endif %}
             {% endfor %}
 
-            {% if is_granted('is_authenticated_fully') %}
+            {% if app.user %}
             {{ form(form) }}
             {% endif %}
         </div>
